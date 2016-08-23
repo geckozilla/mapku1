@@ -1,0 +1,73 @@
+<html> 
+
+    <head>        
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+        <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+
+
+        <script src="lib/jquery-1.8.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+        <link href="css/all.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" charset="utf-8">
+            window._cordovaNative = true; 
+        </script>
+
+        <script type="text/javascript" charset="utf-8">
+
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            function onDeviceReady() 
+                {
+                    //navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                    var map = new GoogleMaped(); 
+                    map.initialize(); 
+                }
+
+
+                function GoogleMaped()
+                    {
+                        this.initialize = function(){
+                            var map = showMap();
+                    }
+
+
+                         var showMap = function(){
+                            var mapOptions = 
+                                {
+                                    zoom: 4,
+                                    center: new google.maps.LatLng(55.689403, 12.521281),
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                }    
+                            var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);    
+
+
+                            return map;
+                        }
+                    }  
+
+                $(document).ready(function(){
+                    alert("hi al"); 
+                });
+
+        </script>
+
+
+
+    </head>
+
+    <body>
+
+    <div id="phonegapWrapper" style="">
+
+        <div id="map_canvas">
+        </div>
+
+    </div> 
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
